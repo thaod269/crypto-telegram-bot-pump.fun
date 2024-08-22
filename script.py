@@ -10,7 +10,7 @@ import asyncio
 import json
 from webdriver_manager.chrome import ChromeDriverManager
 
-# create a telegram bot instance
+# Create a telegram bot instance
 bot = telegram.Bot(token="use BotFather to create bot and paste token here")
 
 async def send_message(text, chat_id="chat ID to where the message will be sent. (conversation or group)"):
@@ -38,13 +38,11 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 
 async def main():
     while True:
-        
         for base_url in wallet_urls:
-            
             logger.info(f"Loading the page for wallet: {base_url}")
             driver.get(base_url)
             driver.refresh()
-            time.sleep(4)  # waiting to allow data to load
+            time.sleep(4)  # Waiting to allow data to load
             page_source = driver.page_source
             soup = BeautifulSoup(page_source, "html.parser")
             target_divs = soup.find_all("div", class_="grid gap-4 text-sm min-w-[350px] w-fit")
@@ -93,7 +91,7 @@ async def main():
             with open(output_filename, "w") as f:
                 json.dump([data["TICKER"] for data in data_array], f)
 
-            time.sleep(1)  # wait before the next check
+            time.sleep(1)  # Wait before the next check
 
 # Running the main function
 asyncio.run(main())
