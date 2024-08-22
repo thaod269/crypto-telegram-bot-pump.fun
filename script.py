@@ -19,11 +19,6 @@ async def send_message(text, chat_id="chat ID to where the message will be sent.
     except Exception as e:
         logger.error(f"Failed to send message: {e}")
 
-# defining the User-Agent header to use in the GET request below
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
-}
-
 # Define multiple wallet URLs
 wallet_urls = [
     "https://www.pump.fun/profile/",
