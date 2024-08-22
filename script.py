@@ -11,9 +11,9 @@ import json
 from webdriver_manager.chrome import ChromeDriverManager
 
 # Create a telegram bot instance
-bot = telegram.Bot(token="use BotFather to create bot and paste token here")
+bot = telegram.Bot(token="YOUR_TELEGRAM_BOT_TOKEN")
 
-async def send_message(text, chat_id="chat ID to where the message will be sent. (conversation or group)"):
+async def send_message(text, chat_id="YOUR_TELEGRAM_CHAT_ID"):
     try:
         await bot.send_message(chat_id=chat_id, text=text)
     except Exception as e:
